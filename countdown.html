@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Nova Labs Kickstarter Countdown!</title>
+
+    <style>
+    body {
+      background-color: #000000;
+    }
+    div {
+      color: #ffffff;
+      left: 0;
+      line-height: 200px;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      width: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    #countdown-party {
+      font-size: 1000%;
+      margin-top: -275px;
+    }
+    #goal {
+      font-size: 400%;
+      margin-top: 300px;
+    }
+    #backers {
+      font-size: 800%;
+      margin-top: 0px;
+    }
+
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="countdown.min.js"></script>
+  </head>
+
+  <body>
+    <div id="countdown-party">$9000</div>
+    <div id="goal">till the launch!</div>
+  <script>
+	  var clock = document.getElementById("countdown-party")
+	    , targetDate = new Date("April 16, 2015 19:30:00");
+	 
+	  clock.innerHTML = countdown(targetDate).toString();
+	  setInterval(function(){
+	    clock.innerHTML = countdown(targetDate).toString();
+	  }, 1000);
+</script>
+  </body>
+</html>

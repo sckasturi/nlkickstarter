@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Nova Labs Kickstarter Countdown!</title>
+
+    <style>
+    body {
+      background-color: #000000;
+    }
+    div {
+      color: #ffffff;
+      left: 0;
+      line-height: 200px;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      width: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    #moni {
+      font-size: 1000%;
+      margin-top: -275px;
+    }
+    #goal {
+      font-size: 400%;
+      margin-top: -125px;
+    }
+    #backers {
+      font-size: 800%;
+      margin-top: 0px;
+    }
+
+    </style>
+
+    <script>
+      function load(value) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById(value).innerHTML=xmlhttp.responseText;
+          }
+        }
+        xmlhttp.open("GET","http://127.0.0.1:8000/api/" + value,true);
+        xmlhttp.send();
+        console.log("loading" + value);
+      }
+      var reload = function() {
+        load("moni");
+        load("goal");
+        load("backers");
+        console.log("reloading...")
+      }
+      setInterval(reload, 10000);
+    </script>
+  </head>
+
+  <body>
+    <div id="moni">$9000</div>
+    <div id="goal">pledged out of $10</div>
+    <div id="backers">5 backers</div>
+  </body>
+</html>
